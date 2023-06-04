@@ -19,7 +19,6 @@ import styles from "../styles/hover.module.css";
 
 const style = {
   my: 1,
-  mx: 4,
   color: "black",
   textTransform: "none",
   textDecoration: "none",
@@ -38,7 +37,7 @@ const customTheme = createTheme({
       sm: 600,
       md: 960,
       lg: 1200,
-      rs: 1400,
+      rs: 1330,
       xl: 1600,
       customLg: 1400,
       customXl: 1980,
@@ -75,15 +74,27 @@ export default function Navbar() {
           justifyContent: "center",
         }}>
         <Container maxWidth="rs">
-          <Toolbar sx={{ flexWrap: "wrap" }} className="test">
+          <Toolbar sx={{ flexWrap: "wrap" }}>
             <Stack
               direction="row"
-              sx={{ display: { xs: "none", md: "flex" }, flexGrow: 1 }}>
+              sx={{
+                display: { xs: "none", md: "flex" },
+                flexGrow: 1,
+              }}
+              spacing={7}>
               <Button sx={style}>Services</Button>
-              <Button sx={style}>About us</Button>
-              <Button sx={style}>Help us</Button>
-              <Button sx={style}>News</Button>
-              <Button sx={style}>Contact</Button>
+              <Button sx={style} size="large">
+                About us
+              </Button>
+              <Button sx={style} size="large">
+                Help us
+              </Button>
+              <Button sx={style} size="large">
+                News
+              </Button>
+              <Button sx={style} size="large">
+                Contact
+              </Button>
             </Stack>
 
             <Box sx={{ display: { xs: "flex", md: "none" }, flexGrow: 1 }}>
@@ -93,8 +104,9 @@ export default function Navbar() {
                 aria-controls="menu-appbar"
                 aria-haspopup="true"
                 onClick={handleOpenNavMenu}
-                color="inherit">
-                <MenuIcon />
+                color="inherit"
+                sx={{ p: 0 }}>
+                <MenuIcon fontSize="large" />
               </IconButton>
               <Menu
                 id="menu-appbar"
@@ -153,7 +165,7 @@ export default function Navbar() {
           </Toolbar>
         </Container>
       </AppBar>
-      <Box sx={{ width: "100%", height: "130px" }} />
+      <Toolbar />
     </ThemeProvider>
   );
 }
