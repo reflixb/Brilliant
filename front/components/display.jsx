@@ -7,6 +7,7 @@ import {
   ThemeProvider,
   createTheme,
 } from "@mui/material";
+import styl from "../styles/styles.module.css";
 
 const customTheme = createTheme({
   breakpoints: {
@@ -15,7 +16,7 @@ const customTheme = createTheme({
       sm: 600,
       md: 960,
       lg: 1200,
-      rs: 1330,
+      rs: 1290,
       xl: 1600,
       customLg: 1400,
       customXl: 1980,
@@ -60,7 +61,7 @@ export default function Display() {
             <Typography sx={{ color: "#5E6282" }}>
               Бриллиант эмнэлэг нь эрүүл мэндийн урьдчилан сэргийлэх үзлэг
               шинжилгээг хувь хүн болон албан байгууллага нэгжийн онцлогт
-              тохируулан түргэн шуурхай, найдвартай хийн үйлчилж байна.
+              тохируулан түргэн шуурхай, найдвартай хий үйлчилж байна
             </Typography>
           </Card>
         </Container>

@@ -16,6 +16,7 @@ import {
 } from "@mui/material/";
 import MenuIcon from "@mui/icons-material/Menu";
 import styles from "../styles/hover.module.css";
+import styl from "../styles/styles.module.css";
 
 const style = {
   my: 1,
@@ -37,7 +38,7 @@ const customTheme = createTheme({
       sm: 600,
       md: 960,
       lg: 1200,
-      rs: 1330,
+      rs: 1290,
       xl: 1600,
       customLg: 1400,
       customXl: 1980,
@@ -74,18 +75,22 @@ export default function Navbar() {
           justifyContent: "center",
         }}>
         <Container maxWidth="rs">
-          <Toolbar sx={{ flexWrap: "wrap" }}>
+          <Box
+            sx={{
+              padding: 0,
+              display: "flex",
+              alignItems: "center",
+            }}>
             <Stack
               direction="row"
               sx={{
                 display: { xs: "none", md: "flex" },
                 flexGrow: 1,
+                alignItems: "center",
               }}
               spacing={7}>
               <Button sx={style}>Services</Button>
-              <Button sx={style} size="large">
-                About us
-              </Button>
+              <Button sx={style}>About us</Button>
               <Button sx={style} size="large">
                 Help us
               </Button>
@@ -162,7 +167,7 @@ export default function Navbar() {
               }}>
               Brilliant
             </Typography>
-          </Toolbar>
+          </Box>
         </Container>
       </AppBar>
       <Toolbar />
