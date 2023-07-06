@@ -12,11 +12,11 @@ import {
   Menu,
   MenuItem,
   IconButton,
-  useTheme,
 } from "@mui/material/";
 import MenuIcon from "@mui/icons-material/Menu";
 import styles from "../styles/hover.module.css";
-import styl from "../styles/styles.module.css";
+import { useRouter } from "next/navigation";
+// import styl from "../styles/styles.module.css";
 
 const style = {
   my: 1,
@@ -48,6 +48,7 @@ const customTheme = createTheme({
 
 export default function Navbar() {
   const [anchorElNav, setAnchorElNav] = React.useState(null);
+  const router = useRouter();
 
   const handleOpenNavMenu = (event) => {
     setAnchorElNav(event.currentTarget);
@@ -57,13 +58,12 @@ export default function Navbar() {
     setAnchorElNav(null);
   };
 
-  const theme = useTheme();
   //   const isXsScreen = useMediaQuery(theme.breakpoints.up("sm"));
 
   return (
     <ThemeProvider theme={customTheme}>
       <AppBar
-        position="fixed"
+        position="sticky"
         color="default"
         sx={{
           bgcolor: "white",
@@ -89,10 +89,21 @@ export default function Navbar() {
                 alignItems: "center",
               }}
               spacing={7}>
-              <Button sx={style}>Services</Button>
+              <Button
+                sx={style}
+                onClick={() => {
+                  router.push("/services");
+                }}>
+                Services
+              </Button>
               <Button sx={style}>About us</Button>
-              <Button sx={style} size="large">
-                Help us
+              <Button
+                sx={style}
+                size="large"
+                onClick={() => {
+                  router.push("/doctor");
+                }}>
+                Эмч нар
               </Button>
               <Button sx={style} size="large">
                 News
@@ -141,7 +152,7 @@ export default function Navbar() {
                     sx={{ display: { xs: "block", md: "none" } }}>
                     <Typography textAlign="left">Services</Typography>
                     <Typography textAlign="left">About us</Typography>
-                    <Typography textAlign="left">Help Center</Typography>
+                    <Typography textAlign="left">Эмч нар</Typography>
                     <Typography textAlign="left">News</Typography>
                     <Typography textAlign="left">Contact</Typography>
                   </Stack>
@@ -164,13 +175,15 @@ export default function Navbar() {
                 "&:hover": {
                   color: "rgb(219, 68, 64)",
                 },
+              }}
+              onClick={() => {
+                router.push("/");
               }}>
               Brilliant
             </Typography>
           </Box>
         </Container>
       </AppBar>
-      <Toolbar />
     </ThemeProvider>
   );
 }

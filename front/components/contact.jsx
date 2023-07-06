@@ -6,9 +6,9 @@ import {
   ThemeProvider,
   Typography,
 } from "@mui/material";
-import LocationOnIcon from "@mui/icons-material/LocationOn";
-import EmailIcon from "@mui/icons-material/Email";
-import CallIcon from "@mui/icons-material/Call";
+import Map from "./contacts/map";
+import { Info } from "./contacts/info";
+import { Social } from "./contacts/social";
 
 const customTheme = createTheme({
   breakpoints: {
@@ -28,64 +28,45 @@ const customTheme = createTheme({
 export default function Contact() {
   return (
     <ThemeProvider theme={customTheme}>
-      <Box sx={{ width: "100vw", height: "60vh" }}>
+      <Box
+        sx={{
+          width: "100vw",
+          height: { xs: "114vh", sm: "61vh", color: "white" },
+          bgcolor: "rgb(34, 34,34)",
+        }}>
         <Box
           sx={{
             width: "100%",
-            height: "50vh",
+            height: { xs: "107vh", sm: "55vh" },
           }}>
           <Container
             maxWidth="rs"
             sx={{
-              bgcolor: "rgb(34, 34,34)",
               height: "100%",
+              pt: 6,
             }}>
-            <Stack direction="row">
-              <Box sx={{ mt: 7 }}>
-                <Box>
-                  <Typography>Холбоо барих</Typography>
-                  <Box
-                    sx={{
-                      height: "2px",
-                      width: "60px",
-                      bgcolor: "rgb(50, 115, 70)",
-                      mt: 1.5,
-                    }}
-                  />
-                </Box>
-
-                <Stack>
-                  <Box sx={{ display: "flex", mt: 4 }}>
-                    <LocationOnIcon />
-                    <Typography sx={{ ml: 1 }}>Brilliant</Typography>
-                  </Box>
-
-                  <Box sx={{ display: "flex", mt: 2 }}>
-                    <EmailIcon />
-                    <Typography sx={{ ml: 1 }}>info@brilliant.mn</Typography>
-                  </Box>
-
-                  <Box sx={{ display: "flex", mt: 2 }}>
-                    <CallIcon />
-                    <Typography sx={{ ml: 1 }}>7609 6666</Typography>
-                  </Box>
-                </Stack>
-              </Box>
-
-              <Box sx={{ mt: 7 }}>
-                <Box>
-                  <Typography>Манай хаяг</Typography>
-                  <Box
-                    sx={{
-                      height: "2px",
-                      width: "60px",
-                      bgcolor: "rgb(50, 115, 70)",
-                      mt: 1.5,
-                    }}
-                  />
-                </Box>
-              </Box>
+            <Stack direction={{ xs: "column", sm: "row" }} spacing={8}>
+              <Info />
+              <Map />
+              <Social />
             </Stack>
+          </Container>
+        </Box>
+
+        <Box sx={{ height: "1px", width: "100%", bgcolor: "rgb(61,61,61)" }} />
+        <Box sx={{ width: "100%", height: "6vh" }}>
+          <Container
+            maxWidth="rs"
+            sx={{
+              height: "100%",
+              display: "flex",
+              alignItems: "center",
+              justifyContent: "center",
+            }}>
+            <Typography fontSize="small">
+              {" "}
+              © 2023 Brilliant Эмнэлэг. Зохиогчийн эрхийг хуулиар хамгаална.
+            </Typography>
           </Container>
         </Box>
       </Box>
