@@ -5,6 +5,7 @@ import {
   createTheme,
   ThemeProvider,
   Typography,
+  useMediaQuery,
 } from "@mui/material";
 import Map from "./contacts/map";
 import { Info } from "./contacts/info";
@@ -26,35 +27,45 @@ const customTheme = createTheme({
 });
 
 export default function Contact() {
+  const matches = useMediaQuery("(min-width:750px)");
   return (
     <ThemeProvider theme={customTheme}>
       <Box
         sx={{
           width: "100vw",
-          height: { xs: "114vh", sm: "61vh", color: "white" },
           bgcolor: "rgb(34, 34,34)",
         }}>
         <Box
           sx={{
             width: "100%",
-            height: { xs: "107vh", sm: "55vh" },
           }}>
           <Container
             maxWidth="rs"
             sx={{
               height: "100%",
-              pt: 6,
+              py: 8,
             }}>
-            <Stack direction={{ xs: "column", sm: "row" }} spacing={8}>
-              <Info />
-              <Map />
-              <Social />
-            </Stack>
+            <Box
+              sx={{
+                display: "flex",
+                justifyContent: "space-between",
+                flexDirection: matches ? "row" : "column",
+              }}>
+              <Stack direction={{ xs: "column", md: "row" }} spacing={7}>
+                <Social />
+                <Map />
+              </Stack>
+
+              <Box sx={{ mt: matches ? 0 : 7 }}>
+                {" "}
+                <Info />{" "}
+              </Box>
+            </Box>
           </Container>
         </Box>
 
         <Box sx={{ height: "1px", width: "100%", bgcolor: "rgb(61,61,61)" }} />
-        <Box sx={{ width: "100%", height: "6vh" }}>
+        <Box sx={{ width: "100%", p: 2 }}>
           <Container
             maxWidth="rs"
             sx={{
@@ -64,7 +75,6 @@ export default function Contact() {
               justifyContent: "center",
             }}>
             <Typography fontSize="small">
-              {" "}
               © 2023 Brilliant Эмнэлэг. Зохиогчийн эрхийг хуулиар хамгаална.
             </Typography>
           </Container>

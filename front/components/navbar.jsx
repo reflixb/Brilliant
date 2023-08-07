@@ -2,8 +2,6 @@ import React from "react";
 import {
   AppBar,
   Box,
-  Button,
-  Toolbar,
   Typography,
   Container,
   createTheme,
@@ -16,21 +14,9 @@ import {
 import MenuIcon from "@mui/icons-material/Menu";
 import styles from "../styles/hover.module.css";
 import { useRouter } from "next/navigation";
-// import styl from "../styles/styles.module.css";
+import Link from "next/link";
+import { usePathname } from "next/navigation";
 
-const style = {
-  my: 1,
-  color: "black",
-  textTransform: "none",
-  textDecoration: "none",
-  fontSize: "16px",
-  "&:hover": {
-    bgcolor: "black",
-    color: "white",
-    borderRadius: "5px",
-  },
-  fontWeight: "547",
-};
 const customTheme = createTheme({
   breakpoints: {
     values: {
@@ -49,6 +35,7 @@ const customTheme = createTheme({
 export default function Navbar() {
   const [anchorElNav, setAnchorElNav] = React.useState(null);
   const router = useRouter();
+  const pathname = usePathname();
 
   const handleOpenNavMenu = (event) => {
     setAnchorElNav(event.currentTarget);
@@ -58,7 +45,28 @@ export default function Navbar() {
     setAnchorElNav(null);
   };
 
-  //   const isXsScreen = useMediaQuery(theme.breakpoints.up("sm"));
+  const navLinks = [
+    {
+      name: "Нүүр",
+      link: "/",
+    },
+    {
+      name: "Бидний тухай",
+      link: "/about",
+    },
+    {
+      name: "Үйлчилгээ",
+      link: "/services",
+    },
+    {
+      name: "Эмч нар",
+      link: "/doctor",
+    },
+    {
+      name: "Мэдээлэл",
+      link: "/posts",
+    },
+  ];
 
   return (
     <ThemeProvider theme={customTheme}>
@@ -81,39 +89,62 @@ export default function Navbar() {
               display: "flex",
               alignItems: "center",
             }}>
+            <img src="/images/blogo.svg" alt="" />
+
+            <Typography
+              variant="h5"
+              color="inherit"
+              className={styles.hover}
+              sx={{
+                display: "flex",
+                textAlign: "center",
+                mx: 1,
+                mt: 1,
+                fontWeight: "bold",
+                "&:hover": {
+                  color: "rgb(219, 68, 64)",
+                },
+              }}
+              onClick={() => {
+                router.push("/");
+              }}>
+              Brilliant
+            </Typography>
+            <Box sx={{ flexGrow: "1" }} />
+
+            {/* color: "rgb(50, 115, 70)"  */}
+
             <Stack
               direction="row"
+              spacing={20}
               sx={{
                 display: { xs: "none", md: "flex" },
-                flexGrow: 1,
                 alignItems: "center",
-              }}
-              spacing={7}>
-              <Button
-                sx={style}
-                onClick={() => {
-                  router.push("/services");
-                }}>
-                Services
-              </Button>
-              <Button sx={style}>About us</Button>
-              <Button
-                sx={style}
-                size="large"
-                onClick={() => {
-                  router.push("/doctor");
-                }}>
-                Эмч нар
-              </Button>
-              <Button sx={style} size="large">
-                News
-              </Button>
-              <Button sx={style} size="large">
-                Contact
-              </Button>
+              }}>
+              <nav className="shift">
+                <ul>
+                  <li>
+                    {navLinks.map(({ link, name }) => {
+                      return (
+                        <Box
+                          key={name}
+                          sx={{ color: "black", fontSize: "17px" }}>
+                          <Link
+                            className={
+                              pathname === link ? "text-green-700" : ""
+                            }
+                            href={link}>
+                            {name}
+                          </Link>
+                        </Box>
+                      );
+                    })}
+                  </li>
+                </ul>
+              </nav>
             </Stack>
 
-            <Box sx={{ display: { xs: "flex", md: "none" }, flexGrow: 1 }}>
+            <Box sx={{ display: { xs: "flex", md: "none" } }}>
               <IconButton
                 size="large"
                 aria-label="account of current user"
@@ -148,39 +179,27 @@ export default function Navbar() {
                     flexDirection: "column",
                   }}>
                   <Stack
-                    spacing={1}
-                    sx={{ display: { xs: "block", md: "none" } }}>
-                    <Typography textAlign="left">Services</Typography>
-                    <Typography textAlign="left">About us</Typography>
-                    <Typography textAlign="left">Эмч нар</Typography>
-                    <Typography textAlign="left">News</Typography>
-                    <Typography textAlign="left">Contact</Typography>
+                    spacing={2}
+                    sx={{
+                      display: { xs: "block", md: "none" },
+                    }}>
+                    {navLinks.map(({ link, name }) => {
+                      return (
+                        <Box key={name} sx={{ color: "black" }}>
+                          <Link
+                            className={
+                              pathname === link ? "text-green-700" : ""
+                            }
+                            href={link}>
+                            {name}
+                          </Link>
+                        </Box>
+                      );
+                    })}
                   </Stack>
                 </MenuItem>
               </Menu>
             </Box>
-
-            <img src="/images/blogo.svg" alt="" />
-
-            <Typography
-              variant="h5"
-              color="inherit"
-              className={styles.hover}
-              sx={{
-                display: "flex",
-                textAlign: "center",
-                mx: 1,
-                mt: 1,
-                fontWeight: "bold",
-                "&:hover": {
-                  color: "rgb(219, 68, 64)",
-                },
-              }}
-              onClick={() => {
-                router.push("/");
-              }}>
-              Brilliant
-            </Typography>
           </Box>
         </Container>
       </AppBar>

@@ -1,15 +1,7 @@
 import Navbar from "./navbar";
 import Contact from "./contact";
 import "../src/app/globals.css";
-import {
-  Box,
-  Typography,
-  Card,
-  CardContent,
-  Container,
-  ThemeProvider,
-  createTheme,
-} from "@mui/material";
+import { ThemeProvider, createTheme } from "@mui/material";
 
 const customTheme = createTheme({
   breakpoints: {
@@ -31,6 +23,7 @@ export default function Layout({ children }) {
     <ThemeProvider theme={customTheme}>
       <Navbar />
       <main
+        suppressHydrationWarning={true}
         style={{
           backgroundColor: "rgb(243, 243, 246)",
           color: "black",

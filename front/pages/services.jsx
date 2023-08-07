@@ -1,123 +1,108 @@
-import { Box, Typography, Stack, Grid, Card } from "@mui/material";
+import {
+  Box,
+  Typography,
+  Stack,
+  Grid,
+  Card,
+  Container,
+  CardContent,
+} from "@mui/material";
 
 export default function Services() {
   return (
-    <Box
-      sx={{
-        display: "flex",
-        width: "100%",
-        height: "100%",
-      }}>
-      <Grid
-        container
-        spacing={1}
+    <Box sx={{ width: "100%", pt: 5 }}>
+      <Container
+        maxWidth="rs"
         sx={{
-          display: "flex",
-          width: "100%",
+          height: "100%",
         }}>
-        {data.map((item, index) => (
-          <Grid item key={index} xs={12} sm={6} md={4} lg={3}>
-            <Card
-              sx={{
-                display: "flex",
-                flexDirection: "column",
-                alignItems: "center",
-                height: 270,
-                boxShadow: "none",
-                bgcolor: "rgb(243, 243, 246)",
-              }}>
-              <img src={item.imageUrl} alt="Item" width="200" height="200" />
+        <Typography
+          sx={{ textAlign: "center", fontWeight: "bold" }}
+          variant="h4">
+          Үйлчилгээ
+        </Typography>
+
+        <Grid container spacing={2} sx={{ mt: 3 }}>
+          {data.map((item) => (
+            <Grid item xs={12} sm={6} md={3} key={item.text}>
               <Card
                 sx={{
-                  width: 210,
-                  boxShadow: "none",
-                  bgcolor: "rgb(243, 243, 246)",
+                  mb: 3,
+                  ":hover": {
+                    boxShadow: 20,
+                  },
                 }}>
-                <Typography
-                  variant="body1"
-                  width="200"
-                  sx={{ textAlign: "center" }}>
-                  {item.title}
-                </Typography>
+                <img src={item.img} alt={item.name} style={{ width: "100%" }} />
+                <CardContent>
+                  <Typography variant="h5" component="h2" sx={{ padding: 2 }}>
+                    {item.name}
+                  </Typography>
+                  <Typography color="textSecondary">{item.text}</Typography>
+                </CardContent>
               </Card>
-            </Card>
-          </Grid>
-        ))}
-      </Grid>
+            </Grid>
+          ))}
+        </Grid>
+      </Container>
     </Box>
   );
 }
 
 const data = [
   {
-    imageUrl:
-      "https://scontent.fuln6-1.fna.fbcdn.net/v/t45.5328-4/188912357_5903356673037997_7839572150514497191_n.jpg?stp=c0.0.960.960a_dst-jpg_p960x960&_nc_cat=106&ccb=1-7&_nc_sid=c48759&_nc_ohc=UDLGH9BhihgAX_aRy-V&_nc_ht=scontent.fuln6-1.fna&oh=00_AfCkvPLP2YxtMoHkb9inAc-BPAnk5tfC-oyyVV1ASDOW5A&oe=648F3E49",
-    title: "Амбулаторийн Үзлэг",
+    img: "https://firebasestorage.googleapis.com/v0/b/brilliant-56246.appspot.com/o/ambul.jpeg?alt=media&token=7ce93a5c-7c05-41b1-b857-0e6b1e7d6fef",
+    text: "Амбулаторийн Үзлэг",
   },
   {
-    imageUrl:
-      "https://scontent.fuln6-1.fna.fbcdn.net/v/t45.5328-4/188912357_5903356673037997_7839572150514497191_n.jpg?stp=c0.0.960.960a_dst-jpg_p960x960&_nc_cat=106&ccb=1-7&_nc_sid=c48759&_nc_ohc=UDLGH9BhihgAX_aRy-V&_nc_ht=scontent.fuln6-1.fna&oh=00_AfCkvPLP2YxtMoHkb9inAc-BPAnk5tfC-oyyVV1ASDOW5A&oe=648F3E49",
-    title: "Дотрын эмчийн үзлэг",
+    img: "https://firebasestorage.googleapis.com/v0/b/brilliant-56246.appspot.com/o/dotor.jpeg?alt=media&token=4b826322-afe6-4b5f-8a2f-32b0631c4be0",
+    text: "Дотрын эмчийн үзлэг",
   },
   {
-    imageUrl:
-      "https://scontent.fuln6-1.fna.fbcdn.net/v/t45.5328-4/184817115_5471675479569747_1739112982204834213_n.jpg?stp=c0.0.960.960a_dst-jpg_p960x960&_nc_cat=108&ccb=1-7&_nc_sid=c48759&_nc_ohc=DbRjr1Uh7WEAX9TYGql&_nc_ht=scontent.fuln6-1.fna&oh=00_AfA8KB6Ssj1mFJ9Ba56qQMBI-xHwKVOfJ5CZ-sN893XtWQ&oe=648DF08B",
-    title: "Уушигны нарийн мэргэжлийн эмчийн үзлэг",
+    img: "https://firebasestorage.googleapis.com/v0/b/brilliant-56246.appspot.com/o/uushga.jpeg?alt=media&token=b9dc180b-6493-4c48-b626-7975de1a3b25",
+    text: "Уушгины эмчийн үзлэг",
   },
   {
-    imageUrl:
-      "https://scontent.fuln6-1.fna.fbcdn.net/v/t45.5328-4/181454043_4233837590070391_6754242589281116035_n.jpg?stp=c0.0.960.960a_dst-jpg_p960x960&_nc_cat=108&ccb=1-7&_nc_sid=c48759&_nc_ohc=dMyh0kcyOaIAX9VHBak&_nc_ht=scontent.fuln6-1.fna&oh=00_AfBMCFnAFDtIC8T2Elxg_xj5iMUGGz49EjAUK3YlFCjiHg&oe=648F00C1",
-    title: "Сэтгэцийн эмчийн үзлэг",
+    img: "https://firebasestorage.googleapis.com/v0/b/brilliant-56246.appspot.com/o/Setgets.jpeg?alt=media&token=b760af39-d20f-4d6a-aec0-7ec180041638",
+    text: "Сэтгэцийн эмчийн үзлэг",
   },
   {
-    imageUrl:
-      "https://scontent.fuln6-1.fna.fbcdn.net/v/t45.5328-4/187291928_5621991304540032_1109540569486084368_n.jpg?stp=c0.0.960.960a_dst-jpg_p960x960&_nc_cat=108&ccb=1-7&_nc_sid=c48759&_nc_ohc=fOz7n4aB-2oAX8yfpUd&_nc_ht=scontent.fuln6-1.fna&oh=00_AfDqJd09GGYYjVnfxAaj-isOp06ccW0ve2wUZqVE1x1WcQ&oe=648E4AB2",
-    title: "Хавдрын эмчийн үзлэг",
+    img: "https://firebasestorage.googleapis.com/v0/b/brilliant-56246.appspot.com/o/havdar.jpeg?alt=media&token=a2957262-cd8a-4596-a42e-6185bea36ec5",
+    text: "Хавдрын эмчийн үзлэг",
   },
   {
-    imageUrl:
-      "https://scontent.fuln6-2.fna.fbcdn.net/v/t45.5328-4/184654132_3835143463250227_3013155724751220352_n.jpg?stp=c0.0.960.960a_dst-jpg_p960x960&_nc_cat=104&ccb=1-7&_nc_sid=c48759&_nc_ohc=vzCvqt1BCkIAX9jYqHv&_nc_ht=scontent.fuln6-2.fna&oh=00_AfB57SQdIK-e-IOEUDSB7UC7IMWoKH2Wh2ogFb8gwivClg&oe=648E92AA",
-    title: "ХЭВТЭН ЭМЧЛҮҮЛЭХ ТАСАГ",
+    img: "https://firebasestorage.googleapis.com/v0/b/brilliant-56246.appspot.com/o/hevten.jpeg?alt=media&token=430d1ccf-a261-4696-ad6f-1e755444d047",
+    text: "Хэвтэн Эмчлүүлэх",
   },
   {
-    imageUrl:
-      "https://scontent.fuln6-2.fna.fbcdn.net/v/t45.5328-4/190337651_3510410682393076_4549225787924917304_n.jpg?stp=c0.0.960.960a_dst-jpg_p960x960&_nc_cat=110&ccb=1-7&_nc_sid=c48759&_nc_ohc=irFERvjbbwUAX_kCysy&_nc_ht=scontent.fuln6-2.fna&oh=00_AfA9st1A29337OInoCip0f4n4DvF-BUhYNuxnjgLESgJtQ&oe=648DB557",
-    title: "Дотрын хэвтэн эмчлүүлэх тасаг",
+    img: "https://firebasestorage.googleapis.com/v0/b/brilliant-56246.appspot.com/o/dotriin.jpeg?alt=media&token=87a4fb6b-d557-49e8-9063-22f7f8a2b09c",
+    text: "Дотрын Тасаг",
   },
   {
-    imageUrl:
-      "https://scontent.fuln6-1.fna.fbcdn.net/v/t45.5328-4/186189970_4056689487717788_231793413182923139_n.jpg?stp=c0.0.960.960a_dst-jpg_p960x960&_nc_cat=109&ccb=1-7&_nc_sid=c48759&_nc_ohc=-M9C5M72EaMAX8VMilH&_nc_ht=scontent.fuln6-1.fna&oh=00_AfBHJ4gjIgQe5SQ4hcfTMtun1oVBZObgSj9cbZEuQ31Asw&oe=648EA6B1",
-    title: "Хөнгөвчлөх эмчилгээ үйлчилгээ",
+    img: "https://firebasestorage.googleapis.com/v0/b/brilliant-56246.appspot.com/o/hungun.jpeg?alt=media&token=5f2786ff-0d0b-4f98-847d-e3210a3cb539",
+    text: "Хөнгөвчлөх Тасаг",
   },
   {
-    imageUrl:
-      "https://scontent.fuln6-2.fna.fbcdn.net/v/t45.5328-4/183531692_4039354176160990_2848314952552876926_n.jpg?stp=c0.0.960.960a_dst-jpg_p960x960&_nc_cat=110&ccb=1-7&_nc_sid=c48759&_nc_ohc=5edq9pe4C0YAX88IhwU&_nc_ht=scontent.fuln6-2.fna&oh=00_AfBfE0ZL5x2wpYr-sZE_3-OHQOh8jVaYlwDd1Vqxd9ISOA&oe=648E8A06",
-    title: "Дүрс Оношилгоо",
-  },
-
-  {
-    imageUrl:
-      "https://scontent.fuln6-1.fna.fbcdn.net/v/t45.5328-4/182880060_6186838094663211_9186488341706854151_n.jpg?stp=c0.0.960.960a_dst-jpg_p960x960&_nc_cat=108&ccb=1-7&_nc_sid=c48759&_nc_ohc=zE_R3mbbe_UAX_28gtr&_nc_oc=AQk3hKhoK-rQvuwcOKiwlZIDzjYqt-AMLL38BDuRZT5cuvYolLZUM0eO2GXEcZHfyHo3Q254nytrsg40D15UFwpP&_nc_ht=scontent.fuln6-1.fna&oh=00_AfAVoMJ4p9NQm57Birx42A9netbcTasep99l2ez8n4h3Mg&oe=648EB80C",
-    title: "Компьютерт томографи",
+    img: "https://firebasestorage.googleapis.com/v0/b/brilliant-56246.appspot.com/o/durs.jpeg?alt=media&token=019c671a-61b1-412f-87b7-4bb07312cf84",
+    text: "Дүрс Оношилгоо",
   },
   {
-    imageUrl:
-      "https://scontent.fuln6-1.fna.fbcdn.net/v/t45.5328-4/179099226_4138881836177996_5532718698730030772_n.jpg?stp=c0.0.960.960a_dst-jpg_p960x960&_nc_cat=107&ccb=1-7&_nc_sid=c48759&_nc_ohc=pvTP4MtYi5wAX9XrBDb&_nc_ht=scontent.fuln6-1.fna&oh=00_AfD9ZLr5A4VywJMyeo4x79QgwfOw7s91e1rg-bMbpaLs9w&oe=648F27F3",
-    title: "Дижитал рентген",
+    img: "https://firebasestorage.googleapis.com/v0/b/brilliant-56246.appspot.com/o/CT.jpeg?alt=media&token=a7150ea5-c048-44fb-a3e4-2758b8e5972a",
+    text: "Компьютерт Томографи",
   },
   {
-    imageUrl:
-      "https://scontent.fuln6-1.fna.fbcdn.net/v/t45.5328-4/189447722_4099654143483235_1730026611058702076_n.jpg?stp=c0.0.960.960a_dst-jpg_p960x960&_nc_cat=102&ccb=1-7&_nc_sid=c48759&_nc_ohc=oufSE7jKG0AAX_dy6-6&_nc_ht=scontent.fuln6-1.fna&oh=00_AfB2ilfCttEH342o6BOaoTTRUeAxwCYT6zVYPbshTspWXg&oe=648F1621",
-    title: "ЭХО Хэт авиан шинжилгээ",
+    img: "https://firebasestorage.googleapis.com/v0/b/brilliant-56246.appspot.com/o/Dijital.jpeg?alt=media&token=e724b2ad-dab8-4c32-ac4f-092c1636d032",
+    text: "Дижитал Рентген",
   },
   {
-    imageUrl:
-      "https://scontent.fuln6-1.fna.fbcdn.net/v/t45.5328-4/185591715_3928450263938432_7280778262823766323_n.jpg?stp=c0.0.960.960a_dst-jpg_p960x960&_nc_cat=106&ccb=1-7&_nc_sid=c48759&_nc_ohc=OpztGiR1eD0AX9aoJMP&_nc_ht=scontent.fuln6-1.fna&oh=00_AfAXlpC43oXx23sgF8j_Zpml7ThaoEUh2X4p9ezt5M2MTg&oe=648E8997",
-    title: "Дурангийн Тасаг",
+    img: "https://firebasestorage.googleapis.com/v0/b/brilliant-56246.appspot.com/o/EHO.jpeg?alt=media&token=82f9aca5-f718-4ed5-a966-b27b4277965a",
+    text: "ЭХО",
   },
   {
-    imageUrl:
-      "https://scontent.fuln6-1.fna.fbcdn.net/v/t45.5328-4/187541843_3927058064054082_5963484031708699882_n.jpg?stp=c0.0.960.960a_dst-jpg_p960x960&_nc_cat=106&ccb=1-7&_nc_sid=c48759&_nc_ohc=8VvGCuFZuM4AX8ROw4B&_nc_ht=scontent.fuln6-1.fna&oh=00_AfAR34Ql1o8jpZPt0XtTFZFRZFMKW-Y5kzCeaRPPRKhe0w&oe=648E5EB0",
-    title: "Лаборатори",
+    img: "https://firebasestorage.googleapis.com/v0/b/brilliant-56246.appspot.com/o/duran.jpeg?alt=media&token=8c257703-39c5-470c-a4a7-23a18cd5199e",
+    text: "Дурангын Тасаг",
+  },
+  {
+    img: "https://firebasestorage.googleapis.com/v0/b/brilliant-56246.appspot.com/o/laboratory.jpeg?alt=media&token=2f78d766-95a2-47af-8075-c3cca7c81338",
+    text: "Лаборатори",
   },
 ];

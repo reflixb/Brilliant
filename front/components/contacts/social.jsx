@@ -5,15 +5,15 @@ import TwitterIcon from "@mui/icons-material/Twitter";
 export const Social = () => {
   return (
     <Box>
-      <Stack spacing={1}>
+      <Stack spacing={2}>
         <Box
           sx={{
             display: "flex",
+            alignItems: "center",
           }}>
-          <img src="./images/blogo.svg" alt="" />
+          <img src="./images/blogo.svg" alt="" width="41" height="50" />
 
           <Typography
-            variant="h5"
             color="inherit"
             sx={{
               display: "flex",
@@ -21,18 +21,19 @@ export const Social = () => {
               mx: 1,
               fontWeight: "bold",
               color: "rgb(50, 115, 70)",
+              fontSize: "28px",
             }}>
             Brilliant
           </Typography>
         </Box>
 
-        <Stack direction="row" spacing={1}>
+        <Stack direction="row" spacing={2}>
           <a
             href="https://www.facebook.com/brilliantclinicmongolia"
             target="_blank"
             rel="noopener noreferrer">
             <Box
-              sx={{ bgcolor: "rgb(56, 116, 203)", borderRadius: "50%", p: 1 }}>
+              sx={{ bgcolor: "rgb(56, 116, 203)", borderRadius: "3px", p: 1 }}>
               <FacebookIcon sx={{ color: "white" }} fontSize="medium" />
             </Box>
           </a>
@@ -42,7 +43,7 @@ export const Social = () => {
             target="_blank"
             rel="noopener noreferrer">
             <Box
-              sx={{ bgcolor: "rgb(75, 154, 229)", borderRadius: "50%", p: 1 }}>
+              sx={{ bgcolor: "rgb(75, 154, 229)", borderRadius: "3px", p: 1 }}>
               <TwitterIcon sx={{ color: "white" }} fontSize="medium" />
             </Box>
           </a>

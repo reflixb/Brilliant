@@ -1,15 +1,28 @@
 "use client";
 import "./globals.css";
-import { Inter } from "next/font/google";
+import { ThemeProvider, createTheme } from "@mui/material";
 
-const inter = Inter({ subsets: ["latin"] });
+const customTheme = createTheme({
+  breakpoints: {
+    values: {
+      xs: 0,
+      sm: 600,
+      md: 960,
+      lg: 1200,
+      rs: 1290,
+      xl: 1600,
+      customLg: 1400,
+      customXl: 1980,
+    },
+  },
+});
 
 export default function RootLayout({ children }) {
   return (
-    <html lang="en">
-      <body className={inter.className} suppressHydrationWarning={true}>
-        {children}
-      </body>
-    </html>
+    <ThemeProvider theme={customTheme}>
+      <html lang="en">
+        <body suppressHydrationWarning={true}>{children}</body>
+      </html>
+    </ThemeProvider>
   );
 }
