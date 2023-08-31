@@ -15,6 +15,7 @@ import HealthAndSafetyIcon from "@mui/icons-material/HealthAndSafety";
 import ThumbUpOffAltIcon from "@mui/icons-material/ThumbUpOffAlt";
 import AutoGraphIcon from "@mui/icons-material/AutoGraph";
 import { Reveal } from "./reveal";
+import ImageCarousel from "./sideComponents/imageCarousel";
 
 const customTheme = createTheme({
   breakpoints: {
@@ -117,7 +118,12 @@ export default function Display() {
           display: "flex",
           alignItems: "center",
           color: "black",
+          flexDirection: "column",
         }}>
+        <Box sx={{ width: "100%", height: "2px", bgcolor: "green" }} />
+        <Box sx={{ width: "100%", height: "110vh" }}>
+          <ImageCarousel />
+        </Box>
         <Container
           maxWidth="rs"
           sx={{
@@ -131,7 +137,7 @@ export default function Display() {
                 boxShadow: "none",
                 maxWidth: 600,
                 bgcolor: "rgb(243, 243, 246)",
-                mt: 20,
+                mt: 14,
               }}>
               <Reveal>
                 <Typography
